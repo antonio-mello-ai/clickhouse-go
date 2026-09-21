@@ -65,10 +65,6 @@ func TestConnFailoverRandom(t *testing.T) {
 
 func testConnFailover(t *testing.T, connOpenStrategy clickhouse.ConnOpenStrategy) {
 	TestProtocols(t, func(t *testing.T, protocol clickhouse.Protocol) {
-		if connOpenStrategy == clickhouse.ConnOpenRandom {
-			SkipOnHTTP(t, protocol, "random seed")
-		}
-
 		env, err := GetNativeTestEnvironment()
 		require.NoError(t, err)
 		useSSL, err := strconv.ParseBool(GetEnv("CLICKHOUSE_USE_SSL", "false"))

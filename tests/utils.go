@@ -832,7 +832,6 @@ func IsSetInEnv(key string) bool {
 	return ok
 }
 
-
 const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const numberBytes = "123456789"
 const (

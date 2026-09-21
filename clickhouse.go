@@ -309,7 +309,7 @@ func (ch *clickhouse) dial(ctx context.Context) (conn nativeTransport, err error
 
 func DefaultDialStrategy(ctx context.Context, connID int, opt *Options, dial Dial) (r DialResult, err error) {
 	var offset int
-	if opt.ConnOpenStrategy == ConnOpenRandom {
+	if opt.ConnOpenStrategy == ConnOpenRandom && len(opt.Addr) > 0 {
 		offset = rand.IntN(len(opt.Addr))
 	}
 
